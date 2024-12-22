@@ -1,0 +1,28 @@
+---
+const { id, classes, title } = Astro.props
+---
+
+<section id={id} class='base-section' class:list={classes}>
+  <h2 class='section-title'>{title}<hr class='underline' /></h2>
+  <slot />
+</section>
+
+<style>
+  .base-section {
+    scroll-margin-top: 40px;
+  }
+
+  .underline {
+    border-color: #a2a2a2;
+    opacity: 10%;
+    margin-top: 8px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .section-title {
+    font-size: 14px;
+    color: #a5a5a5;
+    margin-bottom: 12px;
+  }
+</style>

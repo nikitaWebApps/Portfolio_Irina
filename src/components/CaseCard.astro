@@ -1,0 +1,86 @@
+---
+const { decriptionHighlight, description, index, imagePaths, link } = Astro.props
+---
+
+<div id={`case${index + 1}`} class='case-item'>
+  <a href={link}>
+    <p class='description'>
+      <span class='description description_highlight'>{decriptionHighlight} /</span>
+      {description}
+    </p>
+    <div class='images'>
+      {
+        imagePaths.map((image, index) => (
+          <div class='image-wrapper' class:list={index > 0 ? 'one-col-span' : 'two-col-span'}>
+            <img class='image' src='images/card-image.jpg' alt='Здесь должна быть обложка кейса' loading='lazy' />
+            <div class='overlay' />
+          </div>
+        ))
+      }
+    </div>
+  </a>
+</div>
+<style>
+  .case-item {
+    cursor: pointer;
+  }
+
+  .description {
+    margin-bottom: 1.75rem;
+    max-width: 75%;
+    font-size: 28px;
+    line-height: 130%;
+    transition: color 0.2s ease;
+    color: var(--grey-light);
+  }
+  .case-item:hover .description {
+    color: var(--accent);
+  }
+
+  .description_highlight {
+    color: var(--white);
+    font-family: var(--font-grotesk);
+  }
+
+  .images {
+    display: grid;
+    gap: 10px;
+  }
+
+  .image-wrapper {
+    position: relative;
+    overflow: clip;
+  }
+
+  .overlay {
+    position: absolute;
+    background-color: var(--accent);
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: 0.2s ease;
+  }
+
+  .case-item:hover .overlay {
+    opacity: 0.3;
+  }
+
+  .image-wrapper.one-col-span {
+    grid-column: span 1;
+  }
+  .image-wrapper.two-col-span {
+    grid-column: span 2;
+  }
+
+  .image {
+    width: 100%;
+    object-fit: cover;
+    transition: 0.2s ease;
+  }
+
+  .case-item:hover .image {
+    transform: scale(1.05);
+  }
+</style>

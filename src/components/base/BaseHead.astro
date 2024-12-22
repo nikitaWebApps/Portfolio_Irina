@@ -1,0 +1,48 @@
+---
+import '../../assets/css/reset.css'
+---
+
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+<link rel='preconnect' href='https://fonts.googleapis.com' />
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+<link href='https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap' rel='stylesheet' />
+<link rel='icon' type='image/ico' href='favicon.ico' />
+
+<style>
+  :root {
+    --grey-light: #a5a5a5;
+    --grey-dark: #1e1e1e;
+    --white: #fff;
+    --accent: #183dff;
+    --font-roboto: 'Roboto Flex', 'system-ui', sans-serif;
+    --font-grotesk: 'PPRightGrotesk', 'system-ui', sans-serif;
+  }
+
+  @font-face {
+    font-family: 'PPRightGrotesk';
+    src: url('/fonts/PPRightGrotesk-WideMedium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--grey-dark);
+    color: var(--grey-dark);
+    font-family: var(--font-roboto);
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>

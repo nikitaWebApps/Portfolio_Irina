@@ -1,0 +1,158 @@
+---
+import Antistress from './Antistress.astro'
+const menuLinks = [
+  {
+    name: 'Кейсы',
+    href: '#cases',
+  },
+  {
+    name: 'Опыт и скилсет',
+    href: '#experience',
+  },
+  {
+    name: 'Курсы',
+    href: '#courses',
+  },
+  {
+    name: 'Интересы',
+    href: '#interests',
+  },
+]
+
+const otherLinks = [
+  {
+    name: 'Телеграм',
+    href: 'https://t.me/irakariochi',
+    imgName: 'tg_link_pic.jpg',
+  },
+  {
+    name: 'CV',
+    href: 'docs/CV_Irina_Vasyuk.pdf',
+    imgName: 'cv_link_pic.jpg',
+  },
+  {
+    name: 'Notion',
+    href: 'https://irinavasyuk.notion.site/0a1d9b3ec1774f849100a8f1475d706a',
+    imgName: 'notion_pic.jpg',
+  },
+  {
+    name: 'Behance',
+    href: 'https://www.behance.net/irakariochi',
+    imgName: 'be_link_pic.jpg',
+  },
+  {
+    name: 'Канал',
+    href: 'https://t.me/irakariochidesign',
+    imgName: 'chanel_link_pic.jpg',
+  },
+]
+---
+
+<nav class='menu'>
+  <div class='menu__items'>
+    {
+      menuLinks.map(link => (
+        <a class='menu__item' href={link.href}>
+          {link.name}
+        </a>
+      ))
+    }
+  </div>
+  <div class='menu__items menu__items_other'>
+    {
+      otherLinks.map(link => (
+        <a class='menu__item_other' target='_blank' href={link.href}>
+          <img class='menu__item-pic' src={`images/${link.imgName}`} width='32' height='32' alt='' loading='lazy' />
+          {link.name}
+        </a>
+      ))
+    }
+  </div>
+</nav>
+<Antistress />
+<style>
+  .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: fixed;
+    left: 10px;
+    max-width: 340px;
+    top: 10px;
+  }
+
+  .menu__items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    list-style: none;
+  }
+
+  .menu__item {
+    background-color: var(--white);
+    padding: 6px;
+    width: max-content;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 200%;
+    transition:
+      color 0.3s ease,
+      font-weight 0.3s ease;
+  }
+
+  .menu__item:hover {
+    background-color: var(--accent);
+    color: var(--white);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+
+  .menu__item.active {
+    background-color: var(--accent);
+    color: var(--white);
+  }
+
+  .menu__item_other {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .other__link:hover {
+    color: var(--accent);
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+</style>
+<script>
+  const sections = document.querySelectorAll<HTMLElement>('.scroll-section')
+  const menuLinks = Array.from(document.querySelectorAll('.menu__item'))
+
+  const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        return
+      }
+      const sectionId = entry.target.id
+      menuLinks.forEach(link => {
+        link.classList.remove('active')
+        if (link.getAttribute('href') === `#${sectionId}`) {
+          link.classList.add('active')
+        }
+      })
+    })
+  }
+  const observer = new IntersectionObserver(observerCallback, {
+    root: null,
+    threshold: 0,
+    rootMargin: '-50% 0px', //Trigger when section top at the center of the screen
+  })
+  sections.forEach(section => {
+    observer.observe(section)
+  })
+</script>

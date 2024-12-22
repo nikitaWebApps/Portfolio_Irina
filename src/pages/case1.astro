@@ -1,0 +1,44 @@
+---
+import CaseBlock from '../components/case/CaseBlock.astro'
+import CaseHero from '../components/case/CaseHero.astro'
+import CaseLayout from '../layouts/CaseLayout.astro'
+
+const caseTitle = 'Оптимизация структуры и навигации'
+const caseDescription =
+  '«Мулаинвест» — это веб-платформа, посредством которой пользователь может передавать свои деньги в управление фонду для получения прибыли от сделок. Компания только выходит на рынок, поэтому ключевыми задачами этого проекта были разработка сайта, платформы и общего фирменного стиля.'
+const coverImage = 'images/card-image.jpg'
+---
+
+<CaseLayout caseTitle={caseTitle}>
+  <CaseHero title={caseTitle} description={caseDescription} coverSrc={coverImage} />
+  <CaseBlock heading={'Задача'}>
+    <p class='block-text'>
+      Сделала редизайн сайта, освежила визуал, переписала тексты, сократила путь пользователя до корзины и упростила
+      процесс оформление заказа
+    </p>
+    <p class='block-text'>
+      Сделала редизайн сайта, освежила визуал, переписала тексты, сократила путь пользователя до корзины и упростила
+      процесс оформление заказа
+    </p>
+    <img class='block-image' src='/images/card-image.jpg' alt='' />
+  </CaseBlock>
+
+  <CaseBlock heading={'Как исследовала'}>
+    <p class='block-text'>
+      Сделала редизайн сайта, освежила визуал, переписала тексты, сократила путь пользователя до корзины и упростила
+      процесс оформление заказа
+    </p>
+    <p class='block-text'>
+      Сделала редизайн сайта, освежила визуал, переписала тексты, сократила путь пользователя до корзины и упростила
+      процесс оформление заказа
+    </p>
+    <img class='block-image' src='/images/card-image.jpg' alt='' />
+  </CaseBlock>
+</CaseLayout>
+
+<style is:inline>
+  .block-text {
+    color: var(--grey-light);
+    font-size: 1.5rem;
+  }
+</style>

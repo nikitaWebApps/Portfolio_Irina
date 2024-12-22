@@ -1,0 +1,93 @@
+---
+import MainLayout from '../layouts/MainLayout.astro'
+import Hero from '../components/Hero.astro'
+import SectionCases from '../components/SectionCases.astro'
+import SectionExperience from '../components/SectionExperience.astro'
+import SectionInterests from '../components/SectionInterests.astro'
+import SectionCourses from '../components/SectionCourses.astro'
+import BaseHead from '../components/base/BaseHead.astro'
+import CloseButton from '../components/CloseButton.astro'
+---
+
+<!doctype html>
+<html lang='ru'>
+  <head>
+    <BaseHead />
+    <title>Антистресс | Ира Васюк, дизайнер</title>
+  </head>
+  <body>
+    <CloseButton />
+    <div class='antistress'>
+      <h1 class='title'>тейк ит изи</h1>
+      <button class='button__change-color' type='button'>Изменить цвет</button>
+      <canvas id='canvas'></canvas>
+    </div>
+  </body>
+</html>
+<script>
+  import Spheres2Background from 'https://cdn.jsdelivr.net/npm/threejs-components@0.0.8/build/backgrounds/spheres2.cdn.min.js'
+
+  const antistress = document.querySelector('.antistress')
+  const bg = Spheres2Background(document.getElementById('canvas'), {
+    count: 200,
+    colors: [0xff0000, 0x0, 0xffffff],
+    minSize: 0.5,
+    maxSize: 1,
+  })
+
+  const button1 = document.querySelector('.button__change-color')
+
+  antistress.addEventListener('click', e => {
+    if (e.target !== button1) bg.togglePause()
+  })
+
+  button1.addEventListener('click', () => {
+    bg.spheres.setColors([0xffffff * Math.random(), 0xffffff * Math.random(), 0xffffff * Math.random()])
+    bg.spheres.light1.color.set(0xffffff * Math.random())
+  })
+</script>
+<style>
+  .antistress {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100dvw;
+    height: 100dvh;
+  }
+
+  #canvas {
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .title {
+    position: relative;
+    margin: auto;
+    font-size: 6rem;
+    color: var(--white);
+    font-family: var(--font-grotesk);
+  }
+
+  .button__change-color {
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;
+    font-size: 1.25rem;
+    margin: auto;
+    text-align: center;
+    padding: 0.5rem;
+    background: var(--white);
+    transition: 0.2s ease;
+    cursor: pointer;
+  }
+  .button__change-color:hover {
+    background-color: var(--accent);
+    color: var(--white);
+  }
+</style>

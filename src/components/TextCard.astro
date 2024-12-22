@@ -1,0 +1,90 @@
+---
+type Props = {
+  cardTitle: string
+  cardText: string
+  bottomText?: string
+  date?: string
+  link?: string
+  htmlContent?: string
+}
+const { cardTitle, cardText, bottomText, link, date, htmlContent } = Astro.props
+---
+
+<div class='card'>
+  <div class='card-top'>
+    <h3 class='card-title'>{cardTitle}</h3>
+    <p class='card-text'>
+      {cardText}
+    </p>
+    {htmlContent ? <div set:html={htmlContent} /> : ''}
+  </div>
+  {
+    link ? (
+      <a class='bottom-text_link' href={link} target='_blank'>
+        {bottomText ? bottomText + ' , ' : ''} {date}
+      </a>
+    ) : (
+      <p class='bottom-text'>
+        {bottomText ? bottomText + ' , ' : ''} {date}
+      </p>
+    )
+  }
+</div>
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 0.75rem;
+    min-height: 28rem;
+    background-color: #2e2e2e;
+  }
+
+  .card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .card-title {
+    color: var(--white);
+  }
+
+  .card-text {
+    color: var(--grey-light);
+  }
+
+  .bottom-text {
+    color: var(--grey-light);
+  }
+
+  .bottom-text_link {
+    color: var(--grey-light);
+    transition: 0.2s ease;
+  }
+  .bottom-text_link:hover {
+    color: var(--accent);
+  }
+</style>
+<!-- Styles for list passed as htmlContent prop  -->
+<style is:inline>
+  .list-title {
+    margin-top: 1rem;
+    color: var(--grey-light);
+  }
+  .list {
+    padding-left: 1rem;
+    color: var(--grey-light);
+  }
+  .list-item {
+    list-style: disc;
+  }
+  .list-item__link {
+    transition: 0.2s ease;
+  }
+  .list-item__link:hover {
+    color: var(--accent);
+  }
+</style>

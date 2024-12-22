@@ -1,0 +1,29 @@
+---
+const { title, description, coverSrc } = Astro.props
+---
+
+<section>
+  <h1 class='title'>{title}</h1>
+  <p class='description'>
+    {description}
+  </p>
+  <img class='cover-image' src={coverSrc} alt={title} />
+</section>
+
+<style>
+  .title {
+    font-family: var(--font-grotesk);
+    font-weight: 400;
+    font-size: 3rem;
+    letter-spacing: 1px;
+    color: var(--white);
+    line-height: 115%;
+    margin-bottom: 1rem;
+  }
+  .description {
+    max-width: 690px;
+    font-size: 1.5rem;
+    color: var(--grey-light);
+    margin-bottom: 1.5rem;
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import SkillTags from './SkillTags.astro'
+import BaseSection from '../components/base/BaseSection.astro'
+import TextCard from './TextCard.astro'
+type Card = {
+  cardTitle: string
+  cardText: string
+  bottomText: string
+  date?: string
+  link?: string
+}
+const cards: Card[] = [
+  {
+    cardTitle: `Ведущий продуктовый дизайнер`,
+    cardText: `Упростила сложные сценарии в B2B и B2C модулях, проводила исследования, проверяла гипотезы, строила
+          процессы, писала документацию, повысила командный уровень передачи макетов в разработку`,
+    bottomText: 'Easy Padel',
+    date: '9.2023 – 11.2024',
+    link: 'https://easypadel.ae/',
+  },
+  {
+    cardTitle: `Ведущий UX/UI дизайнер`,
+    cardText: ` Проектировала мобильные приложения, сайты, корпоративные порталы, фичи, мерч, лого, презентации, баннеры,
+          ревьюила дизайнеров`,
+    bottomText: 'Arrrive Studio',
+    date: '9.2021 – 10.2023',
+  },
+  {
+    cardTitle: `Фрилансер`,
+    cardText: `Создавала сайты на Тильде, оформляла соц.сети`,
+    bottomText: 'Arrrive Studio',
+    date: '6.2021 – 9.2021',
+  },
+]
+---
+
+<BaseSection title='Опыт работы более 3 лет' id='experience' classes='experience scroll-section'>
+  <p class='description'>
+    Работала на фрилансе, в студии и в продукте. Делала логотипы, мерч, приложки и сложные сервисы
+  </p>
+  <div class='cards-grid'>
+    {
+      cards.map(card => (
+        <TextCard
+          cardTitle={card.cardTitle}
+          cardText={card.cardText}
+          bottomText={card.bottomText}
+          date={card.date}
+          link={card.link}
+        />
+      ))
+    }
+  </div>
+  <SkillTags />
+</BaseSection>
+
+<style>
+  .description {
+    color: var(--white);
+    font-family: var(--font-grotesk);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 125%;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+</style>

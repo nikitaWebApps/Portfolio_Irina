@@ -1,0 +1,97 @@
+---
+import BaseSection from '../components/base/BaseSection.astro'
+
+const grid1Images = [
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+  'images/3d-pic-bg.jpg',
+]
+
+const grid2Images = [
+  'images/image.001.jpg',
+  'images/image.002.jpg',
+  'images/image.003.jpg',
+  'images/image.004.jpg',
+  'images/image.005.jpg',
+  'images/image.006.jpg',
+  'images/image.007.jpg',
+  'images/image.008.jpg',
+  'images/image.009.jpg',
+  'images/image.010.jpg',
+  'images/image.011.jpg',
+  'images/image.012.jpg',
+]
+---
+
+<BaseSection id='interests' classes='interests scroll-section' title='Интересы'>
+  <div class='interests-block'>
+    <p class='description'>
+      Увлекаюсь вёрсткой сайтов на html/js, хочу научиться собирать приложки на конструкторе, учусь в 3D, делаю графику
+      в AI
+    </p>
+    <div class='images-grid'>
+      {grid1Images.map(image => <img class='image' src={image} alt='' loading='lazy' />)}
+    </div>
+  </div>
+
+  <div class='interests-block'>
+    <p class='description'>Работаю над пет-проектом. Делаю дизайн приложения с рецептами, собираю на FlutterFlow</p>
+    <img class='image-big' src='images/pet-pic.jpg' alt='Мокап пет-проекта' loading='lazy' />
+  </div>
+
+  <div class='interests-block'>
+    <p class='description'>
+      Веду канал <a href='https://t.me/irakariochidesign' target='_blank' class='link'>
+        <img src='images/inline-image.jpg' alt='Аватарка канала' class='inline-image' loading='lazy' />
+        «Дизайн и котик»
+      </a>— рассказываю как строю карьеру в IT, делюсь опытом и своими попытками в ворк-лайф бэланс
+    </p>
+    <img src='images/Telegram-channel-block.png' alt='Мокап пет-проекта' loading='lazy' />
+  </div>
+
+  <div class='interests-block'>
+    <p class='description'>
+      Путешествую по миру, готовлю самые вкусные в мире супчики по мнению меня, играю классику на пианино, занимаюсь
+      кайт-бордингом, люблю триллеры, Хичкока и Бергмана
+    </p>
+    <div class='images-grid'>
+      {grid2Images.map(image => <img class='' src={image} alt='' loading='lazy' />)}
+    </div>
+  </div>
+</BaseSection>
+<style>
+  .description {
+    color: var(--white);
+    font-family: var(--font-grotesk);
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 125%;
+    max-width: 680px;
+    margin-bottom: 1.5rem;
+  }
+
+  .interests-block {
+    margin-bottom: 3.5rem;
+  }
+
+  .images-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.6rem;
+  }
+
+  .inline-image {
+    display: inline-block;
+    max-width: 2.5rem;
+    object-fit: contain;
+  }
+</style>

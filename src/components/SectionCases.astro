@@ -1,0 +1,46 @@
+---
+import BaseSection from '../components/base/BaseSection.astro'
+import CaseCard from './CaseCard.astro'
+//Структура данных для кейса
+const projects = [
+  {
+    _name: 'Первый кейс',
+    descriptionHighlight: 'Оптимизировала структуру и навигацию',
+    description:
+      'Сделала редизайн сайта, освежила визуал, переписала тексты, сократила путь пользователя до корзины и упростила процесс оформление заказа',
+    imagePaths: ['images/card-image.jpg', 'images/card-image.jpg', 'images/card-image.jpg'],
+    link: '/case1',
+  },
+  {
+    _name: 'Второй кейс',
+    descriptionHighlight: 'Оптимизировала структуру и навигацию',
+    description:
+      'Сделала редизайн сайта, освежила визуал, переписала тексты, сократила путь пользователя до корзины и упростила процесс оформление заказа',
+    imagePaths: ['images/card-image.jpg'],
+    link: '/case1',
+  },
+]
+---
+
+<BaseSection id='cases' classes='scroll-section' title='Кейсы'>
+  <div class='cases'>
+    {
+      projects.map((project, index) => (
+        <CaseCard
+          index={index}
+          decriptionHighlight={project.descriptionHighlight}
+          description={project.description}
+          imagePaths={project.imagePaths}
+          link={project.link}
+        />
+      ))
+    }
+  </div>
+</BaseSection>
+<style>
+  .cases {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+</style>
