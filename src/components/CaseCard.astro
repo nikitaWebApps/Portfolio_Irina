@@ -2,8 +2,8 @@
 const { decriptionHighlight, description, index, imagePaths, link } = Astro.props
 ---
 
-<div id={`case${index + 1}`} class='case-item'>
-  <a href={link}>
+<a class='case-link-wrapper' href={link}>
+  <div id={`case${index + 1}`} class='case-item'>
     <p class='description'>
       <span class='description description_highlight'>{decriptionHighlight} /</span>
       {description}
@@ -18,16 +18,16 @@ const { decriptionHighlight, description, index, imagePaths, link } = Astro.prop
         ))
       }
     </div>
-  </a>
-</div>
+  </div>
+</a>
 <style>
-  .case-item {
+  .case-link-wrapper {
     cursor: pointer;
   }
 
   .description {
     margin-bottom: 1.75rem;
-    max-width: 75%;
+    max-width: 620px;
     font-size: 1.6rem;
     line-height: 130%;
     transition: color 0.2s ease;
