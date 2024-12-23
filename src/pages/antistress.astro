@@ -8,6 +8,7 @@ import CloseButton from '../components/CloseButton.astro'
   <head>
     <BaseHead />
     <title>Антистресс | Ира Васюк, дизайнер</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1 user-scalable=no' />
   </head>
   <body>
     <div class='close-button'>
@@ -33,10 +34,6 @@ import CloseButton from '../components/CloseButton.astro'
 
   const button1 = document.querySelector('.button__change-color')
 
-  antistress.addEventListener('click', e => {
-    if (e.target !== button1) bg.togglePause()
-  })
-
   button1.addEventListener('click', () => {
     bg.spheres.setColors([0xffffff * Math.random(), 0xffffff * Math.random(), 0xffffff * Math.random()])
     bg.spheres.light1.color.set(0xffffff * Math.random())
@@ -49,6 +46,7 @@ import CloseButton from '../components/CloseButton.astro'
     flex-direction: column;
     width: 100dvw;
     height: 100dvh;
+    overflow: clip;
   }
 
   #canvas {
@@ -65,6 +63,7 @@ import CloseButton from '../components/CloseButton.astro'
     margin: auto;
     font-size: 6rem;
     color: var(--white);
+    line-height: 100%;
     font-family: var(--font-grotesk);
   }
 
@@ -92,5 +91,11 @@ import CloseButton from '../components/CloseButton.astro'
   .button__change-color:hover {
     background-color: var(--accent);
     color: var(--white);
+  }
+
+  @media (width < 1024px) {
+    .title {
+      font-size: 3rem;
+    }
   }
 </style>
