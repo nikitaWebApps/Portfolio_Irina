@@ -12,7 +12,7 @@ const { decriptionHighlight, description, index, imagePaths, link } = Astro.prop
       {
         imagePaths.map((image, index) => (
           <div class='image-wrapper' class:list={index > 0 ? 'one-col-span' : 'two-col-span'}>
-            <img class='image' src='images/card-image.jpg' alt='Здесь должна быть обложка кейса' loading='lazy' />
+            <img class='image' src='/images/card-image.jpg' alt='Здесь должна быть обложка кейса' loading='lazy' />
             <div class='overlay' />
           </div>
         ))

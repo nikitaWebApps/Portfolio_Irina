@@ -27,7 +27,7 @@ const otherLinks = [
   },
   {
     name: 'CV',
-    href: 'docs/CV_Irina_Vasyuk.pdf',
+    href: '/CV_Irina_Vasyuk.pdf',
     imgName: 'cv_link_pic.jpg',
   },
   {
@@ -62,7 +62,7 @@ const otherLinks = [
     {
       otherLinks.map(link => (
         <a class='menu__item_other' target='_blank' href={link.href}>
-          <img class='menu__item-pic' src={`images/${link.imgName}`} width='32' height='32' alt='' loading='lazy' />
+          <img class='menu__item-pic' src={`/images/${link.imgName}`} width='32' height='32' alt='' loading='lazy' />
           {link.name}
         </a>
       ))
