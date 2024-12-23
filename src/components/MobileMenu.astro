@@ -5,14 +5,17 @@ import Menu from './Menu.astro'
 ---
 
 <div class='mobile-menu hidden'>
-  <Menu />
-  <div class='close-trigger'>
-    <CloseButton type='button' />
+  <div class='group-top'>
+    <Menu />
+    <div class='close-trigger'>
+      <CloseButton type='button' />
+    </div>
   </div>
   <Copyright />
 </div>
 
 <script>
+  const menuLinks = document.querySelectorAll('.menu__item')
   const mobileMenu = document.querySelector('.mobile-menu')
   const mobileMenuOpenTrigger = document.querySelector('.mobile-menu-trigger')
   const mobileMenuCloseTrigger = document.querySelector('.close-trigger button')
@@ -24,6 +27,7 @@ import Menu from './Menu.astro'
   function handleMenuOpen() {
     mobileMenu.classList.remove('hidden')
     document.body.classList.add('noscroll')
+    menuLinks.forEach(link => link.classList.remove('active'))
   }
 
   function handleMenuClose() {
@@ -47,11 +51,16 @@ import Menu from './Menu.astro'
     bottom: 0;
     width: 100dvw;
     height: 100dvh;
+    overflow-y: auto;
     background-color: var(--grey-dark);
   }
   .close-trigger {
     position: absolute;
     top: 10px;
     right: 10px;
+  }
+  .group-top {
+    height: 100%;
+    padding-bottom: 1rem;
   }
 </style>

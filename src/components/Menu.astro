@@ -49,24 +49,26 @@ const otherLinks = [
 ---
 
 <nav class='menu'>
-  <div class='menu__items'>
-    {
-      menuLinks.map(link => (
-        <a class='menu__item' href={link.href}>
-          {link.name}
-        </a>
-      ))
-    }
-  </div>
-  <div class='menu__items menu__items_other'>
-    {
-      otherLinks.map(link => (
-        <a class='menu__item_other' target='_blank' href={link.href}>
-          <img class='menu__item-pic' src={`/images/${link.imgName}`} width='32' height='32' alt='' loading='lazy' />
-          {link.name}
-        </a>
-      ))
-    }
+  <div class='group-top'>
+    <div class='menu__items'>
+      {
+        menuLinks.map(link => (
+          <a class='menu__item' href={link.href}>
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
+    <div class='menu__items menu__items_other'>
+      {
+        otherLinks.map(link => (
+          <a class='menu__item_other' target='_blank' href={link.href}>
+            <img class='menu__item-pic' src={`/images/${link.imgName}`} width='32' height='32' alt='' loading='lazy' />
+            {link.name}
+          </a>
+        ))
+      }
+    </div>
   </div>
   <Antistress />
 </nav>
@@ -74,9 +76,18 @@ const otherLinks = [
 <style>
   .menu {
     display: flex;
+    overflow-y: auto;
     flex-direction: column;
-    gap: 20px;
+    justify-content: space-between;
     width: max-content;
+    gap: 4rem;
+    height: calc(100dvh - 1.5rem);
+  }
+
+  .group-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
   }
 
   .menu__items {
@@ -130,6 +141,10 @@ const otherLinks = [
   @media (width < 1024px) {
     .desktop-only {
       display: none;
+    }
+
+    .menu {
+      height: 100%;
     }
   }
 </style>
