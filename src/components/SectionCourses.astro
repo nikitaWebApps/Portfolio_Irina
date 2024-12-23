@@ -61,7 +61,7 @@ const cards: Card[] = [
   .description {
     color: var(--white);
     font-family: var(--font-grotesk);
-    font-size: 28px;
+    font-size: 1.6rem;
     font-weight: 500;
     line-height: 125%;
     max-width: 680px;
@@ -70,8 +70,13 @@ const cards: Card[] = [
 
   .cards-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 35% 35% minmax(min-content, auto);
     gap: 0.6rem;
     margin-bottom: 0.6rem;
+  }
+  @media (width < 1024px) {
+    .cards-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

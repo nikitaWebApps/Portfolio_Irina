@@ -28,7 +28,7 @@ const { decriptionHighlight, description, index, imagePaths, link } = Astro.prop
   .description {
     margin-bottom: 1.75rem;
     max-width: 75%;
-    font-size: 28px;
+    font-size: 1.6rem;
     line-height: 130%;
     transition: color 0.2s ease;
     color: var(--grey-light);
@@ -82,5 +82,16 @@ const { decriptionHighlight, description, index, imagePaths, link } = Astro.prop
 
   .case-item:hover .image {
     transform: scale(1.05);
+  }
+
+  @media (width < 1024px) {
+    .description {
+      font-size: 1.5rem;
+    }
+  }
+  @media (width < 421px) {
+    .description {
+      font-size: 1.25rem;
+    }
   }
 </style>

@@ -1,8 +1,7 @@
 ---
 import BaseHead from '../components/base/BaseHead.astro'
+import CaseFixedItems from '../components/case/CaseFixedItems.astro'
 import Footer from '../components/Footer.astro'
-import MyProfile from '../components/case/MyProfile.astro'
-import CloseButton from '../components/CloseButton.astro'
 const { caseTitle } = Astro.props
 ---
 
@@ -12,16 +11,20 @@ const { caseTitle } = Astro.props
     <title>{caseTitle} | Ира Васюк, дизайнер</title>
   </head>
   <body>
-    <CloseButton />
-    <MyProfile />
-    <main class='content-wrapper'>
-      <slot />
-      <Footer />
-    </main>
+    <CaseFixedItems />
+    <div class='padding-container'>
+      <main class='content-wrapper'>
+        <slot />
+        <Footer />
+      </main>
+    </div>
   </body>
 </html>
 
 <style>
+  .padding-container {
+    padding: 0 250px;
+  }
   .content-wrapper {
     display: flex;
     flex-direction: column;
@@ -29,5 +32,13 @@ const { caseTitle } = Astro.props
     margin: auto;
     align-items: left;
     gap: 5rem;
+  }
+  @media (width < 1024px) {
+    .padding-container {
+      padding: 0 10px;
+    }
+    .content-wrapper {
+      max-width: unset;
+    }
   }
 </style>

@@ -68,17 +68,15 @@ const otherLinks = [
       ))
     }
   </div>
+  <Antistress />
 </nav>
-<Antistress />
+
 <style>
   .menu {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    position: fixed;
-    left: 10px;
-    max-width: 340px;
-    top: 10px;
+    width: max-content;
   }
 
   .menu__items {
@@ -128,6 +126,12 @@ const otherLinks = [
       background-color 0.3s ease,
       color 0.3s ease;
   }
+
+  @media (width < 1024px) {
+    .desktop-only {
+      display: none;
+    }
+  }
 </style>
 <script>
   const sections = document.querySelectorAll<HTMLElement>('.scroll-section')
@@ -135,7 +139,7 @@ const otherLinks = [
 
   const observerCallback = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     entries.forEach(entry => {
-      if (!entry.isIntersecting) {
+      if (!entry.isIntersecting || window.innerWidth < 1024) {
         return
       }
       const sectionId = entry.target.id
@@ -155,4 +159,17 @@ const otherLinks = [
   sections.forEach(section => {
     observer.observe(section)
   })
+
+  menuLinks.forEach(menuLink => {
+    menuLink.addEventListener('click', closeMobileMenuOnLinkClick)
+  })
+
+  function closeMobileMenuOnLinkClick() {
+    const mobileMenu = document.querySelector('.mobile-menu')
+    if (mobileMenu.classList.contains('hidden')) {
+      return
+    }
+    mobileMenu.classList.add('hidden')
+    document.body.classList.remove('noscroll')
+  }
 </script>

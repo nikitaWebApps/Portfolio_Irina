@@ -21,11 +21,11 @@ const { cardTitle, cardText, bottomText, link, date, htmlContent } = Astro.props
   {
     link ? (
       <a class='bottom-text_link' href={link} target='_blank'>
-        {bottomText ? bottomText + ' , ' : ''} {date}
+        {bottomText ? bottomText + ', ' : ''} {date}
       </a>
     ) : (
       <p class='bottom-text'>
-        {bottomText ? bottomText + ' , ' : ''} {date}
+        {bottomText ? bottomText + ', ' : ''} {date}
       </p>
     )
   }
@@ -40,6 +40,11 @@ const { cardTitle, cardText, bottomText, link, date, htmlContent } = Astro.props
     padding: 0.75rem;
     min-height: 28rem;
     background-color: #2e2e2e;
+  }
+  @media (width < 1024px) {
+    .card {
+      min-height: 12.5rem;
+    }
   }
 
   .card-top {

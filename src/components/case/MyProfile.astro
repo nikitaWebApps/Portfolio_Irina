@@ -2,7 +2,7 @@
 import ProfilePicture from '../ProfilePicture.astro'
 ---
 
-<a href='/'>
+<a class='link-wrapper' href='/'>
   <div class='my-profile'>
     <div class='picture'>
       <ProfilePicture />
@@ -15,19 +15,19 @@ import ProfilePicture from '../ProfilePicture.astro'
 </a>
 
 <style>
+  .link-wrapper {
+    display: block;
+  }
   .my-profile {
     display: flex;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    max-height: 48px;
     width: max-content;
     gap: 0.6rem;
   }
   .picture {
-    width: 40px;
+    width: 38px;
   }
   .text {
-    font-size: 1.25rem;
     color: var(--grey-light);
     line-height: 110%;
   }

@@ -51,8 +51,7 @@ const grid2Images = [
   <div class='interests-block'>
     <p class='description'>
       Веду канал <a href='https://t.me/irakariochidesign' target='_blank' class='link'>
-        <img src='images/inline-image.jpg' alt='Аватарка канала' class='inline-image' loading='lazy' />
-        «Дизайн и котик»
+        <img src='images/inline-image.png' alt='Аватарка канала' class='inline-image' loading='lazy' /> «Дизайн и котик»
       </a>— рассказываю как строю карьеру в IT, делюсь опытом и своими попытками в ворк-лайф бэланс
     </p>
     <img src='images/Telegram-channel-block.png' alt='Мокап пет-проекта' loading='lazy' />
@@ -72,7 +71,7 @@ const grid2Images = [
   .description {
     color: var(--white);
     font-family: var(--font-grotesk);
-    font-size: 28px;
+    font-size: 1.6rem;
     font-weight: 500;
     line-height: 125%;
     max-width: 680px;
@@ -93,5 +92,25 @@ const grid2Images = [
     display: inline-block;
     max-width: 2.5rem;
     object-fit: contain;
+  }
+
+  @media (width < 1024px) {
+    .description {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (width < 421px) {
+    .images-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+    }
+    .description {
+      font-size: 1.25rem;
+    }
+    .interests-block {
+      margin-bottom: 0;
+    }
   }
 </style>

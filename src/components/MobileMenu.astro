@@ -1,0 +1,57 @@
+---
+import CloseButton from './CloseButton.astro'
+import Copyright from './Copyright.astro'
+import Menu from './Menu.astro'
+---
+
+<div class='mobile-menu hidden'>
+  <Menu />
+  <div class='close-trigger'>
+    <CloseButton type='button' />
+  </div>
+  <Copyright />
+</div>
+
+<script>
+  const mobileMenu = document.querySelector('.mobile-menu')
+  const mobileMenuOpenTrigger = document.querySelector('.mobile-menu-trigger')
+  const mobileMenuCloseTrigger = document.querySelector('.close-trigger button')
+
+  mobileMenuOpenTrigger.addEventListener('click', handleMenuOpen)
+
+  mobileMenuCloseTrigger.addEventListener('click', handleMenuClose)
+
+  function handleMenuOpen() {
+    mobileMenu.classList.remove('hidden')
+    document.body.classList.add('noscroll')
+  }
+
+  function handleMenuClose() {
+    mobileMenu.classList.add('hidden')
+    document.body.classList.remove('noscroll')
+  }
+</script>
+
+<style>
+  .mobile-menu.hidden {
+    display: none;
+  }
+  .mobile-menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 50;
+    padding: 10px 10px 24px 10px;
+    top: 0;
+    bottom: 0;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: var(--grey-dark);
+  }
+  .close-trigger {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+</style>

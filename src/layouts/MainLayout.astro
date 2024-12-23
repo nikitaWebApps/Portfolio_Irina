@@ -1,8 +1,7 @@
 ---
 import BaseHead from '../components/base/BaseHead.astro'
-import Menu from '../components/Menu.astro'
-import ProfilePicture from '../components/ProfilePicture.astro'
 import Footer from '../components/Footer.astro'
+import MainTopItems from '../components/MainTopItems.astro'
 ---
 
 <!doctype html>
@@ -12,29 +11,33 @@ import Footer from '../components/Footer.astro'
     <title>Ира Васюк, дизайнер</title>
   </head>
   <body>
-    <Menu />
-    <div class='profile-picture'>
-      <ProfilePicture />
+    <MainTopItems />
+
+    <div class='padding-container'>
+      <main class='content-wrapper'>
+        <slot />
+        <Footer />
+      </main>
     </div>
-    <main class='content-wrapper'>
-      <slot />
-      <Footer />
-    </main>
   </body>
 </html>
 <style>
+  .padding-container {
+    padding: 0 190px;
+  }
   .content-wrapper {
-    display: flex;
-    flex-direction: column;
     max-width: 1000px;
+    display: flex;
     margin: auto;
-    align-items: left;
+    flex-direction: column;
     gap: 5rem;
   }
-
-  .profile-picture {
-    position: fixed;
-    right: 10px;
-    top: 10px;
+  @media (width < 1024px) {
+    .padding-container {
+      padding: 0 10px;
+    }
+    .content-wrapper {
+      max-width: unset;
+    }
   }
 </style>

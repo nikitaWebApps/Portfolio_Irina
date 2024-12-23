@@ -11,6 +11,7 @@ const coverImage = 'images/card-image.jpg'
 
 <CaseLayout caseTitle={caseTitle}>
   <CaseHero title={caseTitle} description={caseDescription} coverSrc={coverImage} />
+
   <CaseBlock heading={'Задача'}>
     <p class='block-text'>
       Сделала редизайн сайта, освежила визуал, переписала тексты, сократила путь пользователя до корзины и упростила
@@ -40,5 +41,11 @@ const coverImage = 'images/card-image.jpg'
   .block-text {
     color: var(--grey-light);
     font-size: 1.5rem;
+  }
+
+  @media (width < 1024px) {
+    .block-text {
+      font-size: 1.25rem;
+    }
   }
 </style>

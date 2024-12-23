@@ -12,7 +12,7 @@
       >Wiki для дизайнера →</a
     >
   </div>
-  <div class='bottom-pic'><img class='special-card__image' src='images/book-pic.png' alt='' loading='lazy' /></div>
+  <img class='bottom-pic' src='images/book-pic.png' alt='' loading='lazy' />
 </div>
 <style>
   .card_special {
@@ -25,9 +25,17 @@
     padding: 0.75rem;
     min-height: 28rem;
     background-color: var(--accent);
+    overflow: hidden;
+  }
+  @media (width < 1024px) {
+    .card_special {
+      min-height: 20rem;
+    }
   }
 
   .card-top {
+    position: relative;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -53,8 +61,17 @@
 
   .bottom-pic {
     position: absolute;
+    width: 100%;
     bottom: 0;
     left: 0;
     right: 0;
+  }
+  @media (width < 1024px) {
+    .bottom-pic {
+      top: 55%;
+
+      bottom: 0;
+      object-fit: cover;
+    }
   }
 </style>

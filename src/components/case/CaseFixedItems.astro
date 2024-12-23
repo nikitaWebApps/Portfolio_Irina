@@ -1,0 +1,26 @@
+---
+import MyProfile from '../../components/case/MyProfile.astro'
+import CloseButton from '../../components/CloseButton.astro'
+---
+
+<div class='header'>
+  <MyProfile />
+  <CloseButton />
+</div>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: fixed;
+    width: 100%;
+    padding: 10px 10px 0 10px;
+  }
+  @media (width < 1024px) {
+    .header {
+      position: static;
+      margin-bottom: 3.5rem;
+    }
+  }
+</style>

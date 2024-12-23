@@ -1,0 +1,21 @@
+---
+
+---
+
+<button class='mobile-menu-trigger' type='button'>Меню</button>
+
+<style>
+  .mobile-menu-trigger {
+    display: none;
+  }
+
+  @media (width < 1024px) {
+    .mobile-menu-trigger {
+      display: block;
+      text-align: center;
+      background-color: var(--white);
+      color: var(--grey-dark);
+      padding: 0.5rem;
+    }
+  }
+</style>

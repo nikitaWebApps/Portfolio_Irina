@@ -1,0 +1,40 @@
+---
+import Menu from '../components/Menu.astro'
+import ProfilePicture from '../components/ProfilePicture.astro'
+import MobileMenuTrigger from './MobileMenuTrigger.astro'
+import MobileMenu from '../components/MobileMenu.astro'
+---
+
+<div class='items'>
+  <div class='desktop-only'>
+    <Menu />
+  </div>
+  <div class='profile-picture'>
+    <ProfilePicture />
+  </div>
+  <MobileMenuTrigger />
+</div>
+<MobileMenu />
+<style>
+  .items {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px 10px 0 10px;
+  }
+  .profile-picture {
+    max-width: 110px;
+  }
+
+  @media (width < 1024px) {
+    .desktop-only {
+      display: none;
+    }
+    .items {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+  }
+</style>

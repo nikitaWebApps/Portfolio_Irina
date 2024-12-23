@@ -1,10 +1,4 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro'
-import Hero from '../components/Hero.astro'
-import SectionCases from '../components/SectionCases.astro'
-import SectionExperience from '../components/SectionExperience.astro'
-import SectionInterests from '../components/SectionInterests.astro'
-import SectionCourses from '../components/SectionCourses.astro'
 import BaseHead from '../components/base/BaseHead.astro'
 import CloseButton from '../components/CloseButton.astro'
 ---
@@ -16,7 +10,9 @@ import CloseButton from '../components/CloseButton.astro'
     <title>Антистресс | Ира Васюк, дизайнер</title>
   </head>
   <body>
-    <CloseButton />
+    <div class='close-button'>
+      <CloseButton />
+    </div>
     <div class='antistress'>
       <h1 class='title'>тейк ит изи</h1>
       <button class='button__change-color' type='button'>Изменить цвет</button>
@@ -70,6 +66,13 @@ import CloseButton from '../components/CloseButton.astro'
     font-size: 6rem;
     color: var(--white);
     font-family: var(--font-grotesk);
+  }
+
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 50;
   }
 
   .button__change-color {

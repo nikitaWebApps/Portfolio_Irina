@@ -10,12 +10,24 @@
   .title {
     font-family: var(--font-grotesk);
     font-weight: 400;
-    font-size: 48px;
-    letter-spacing: 1px;
+    font-size: 3rem;
     color: var(--grey-light);
     line-height: 115%;
   }
   .highlight {
     color: var(--white);
+  }
+  @media (width < 1024px) {
+    .header {
+      margin-bottom: -1rem; /* Adjustement to keep main wrapper flex gap consistent*/
+    }
+    .title {
+      font-size: 2.5rem;
+    }
+  }
+  @media (width < 421px) {
+    .title {
+      font-size: 1.8rem;
+    }
   }
 </style>

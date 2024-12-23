@@ -1,19 +1,12 @@
 ---
-
+import Copyright from './Copyright.astro'
 ---
 
 <footer class='footer'>
-  <p class='footer-text'>© Ира Васюк, <span class='insert-date'></span></p>
+  <Copyright />
 </footer>
-<script>
-  const date = new Date().getFullYear().toString()
-  document.querySelector<HTMLSpanElement>('.insert-date').innerText = date
-</script>
 <style>
   .footer {
-    padding: 24px 0;
-  }
-  .footer-text {
-    color: var(--grey-light);
+    margin-bottom: 1rem;
   }
 </style>

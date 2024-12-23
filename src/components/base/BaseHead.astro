@@ -9,7 +9,7 @@ import '../../assets/css/reset.css'
 <link href='https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap' rel='stylesheet' />
 <link rel='icon' type='image/ico' href='favicon.ico' />
 
-<style>
+<style is:global>
   :root {
     --grey-light: #a5a5a5;
     --grey-dark: #1e1e1e;
@@ -44,5 +44,8 @@ import '../../assets/css/reset.css'
     font-family: var(--font-roboto);
     font-weight: 400;
     font-style: normal;
+  }
+  .noscroll {
+    overflow: hidden;
   }
 </style>

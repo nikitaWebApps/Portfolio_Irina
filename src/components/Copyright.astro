@@ -1,0 +1,16 @@
+---
+
+---
+
+<p class='copyright-text'>© Ира Васюк, <span class='insert-date'></span></p>
+
+<script>
+  const date = new Date().getFullYear().toString()
+  const placesToInsertDate = document.querySelectorAll<HTMLSpanElement>('.insert-date')
+  placesToInsertDate.forEach(placeToInsertDate => (placeToInsertDate.innerText = date))
+</script>
+<style>
+  .copyright-text {
+    color: var(--grey-light);
+  }
+</style>
