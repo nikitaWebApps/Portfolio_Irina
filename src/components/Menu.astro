@@ -63,7 +63,9 @@ const otherLinks = [
       {
         otherLinks.map(link => (
           <a class='menu__item_other' target='_blank' href={link.href}>
-            <img class='menu__item-pic' src={`/images/${link.imgName}`} width='32' height='32' alt='' loading='lazy' />
+            <div class='menu__item-pic'>
+              <img class='' src={`/images/${link.imgName}`} width='32' height='32' alt='' loading='lazy' />
+            </div>
             {link.name}
           </a>
         ))
@@ -123,8 +125,17 @@ const otherLinks = [
   .menu__item_other {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 6px;
     color: var(--white);
+  }
+
+  .menu__item-pic {
+    overflow: clip;
+  }
+
+  .menu__item-pic img {
+    transition: 0.3s ease;
   }
 
   .menu__item_other:hover {
@@ -132,6 +143,10 @@ const otherLinks = [
     transition:
       background-color 0.3s ease,
       color 0.3s ease;
+  }
+
+  .menu__item_other:hover img {
+    transform: scale(1.1);
   }
 
   @media (width < 1024px) {
