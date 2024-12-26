@@ -99,11 +99,9 @@ const otherLinks = [
 
   .menu__item {
     background-color: var(--white);
-    padding: 6px;
+    padding: 0.5rem;
     width: max-content;
     text-decoration: none;
-    font-size: 20px;
-    line-height: 200%;
     transition:
       color 0.3s ease,
       font-weight 0.3s ease;
@@ -127,11 +125,9 @@ const otherLinks = [
     flex-direction: row;
     gap: 6px;
     color: var(--white);
-    font-size: 20px;
-    font-weight: 400;
   }
 
-  .other__link:hover {
+  .menu__item_other:hover {
     color: var(--accent);
     transition:
       background-color 0.3s ease,
@@ -143,8 +139,23 @@ const otherLinks = [
       display: none;
     }
 
+    .group-top {
+      gap: 3rem;
+    }
     .menu {
       height: 100%;
+    }
+
+    .menu__items_other {
+      gap: 0.75rem;
+    }
+
+    .menu__item {
+      font-size: 1.25rem;
+      padding: 0.25rem 0.5rem;
+    }
+    .menu__item_other {
+      font-size: 1.25rem;
     }
   }
 </style>
