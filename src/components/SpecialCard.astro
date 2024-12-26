@@ -46,7 +46,8 @@
   }
 
   .card-text {
-    color: var(--grey-light);
+    color: var(--white);
+    opacity: 0.6;
     margin-bottom: 1rem;
   }
   .wiki-link {
@@ -57,6 +58,11 @@
     font-size: 1.25rem;
     padding: 0.5rem;
     width: max-content;
+    transition: 0.2s ease;
+  }
+
+  .wiki-link:hover {
+    color: var(--accent);
   }
 
   .bottom-pic {
